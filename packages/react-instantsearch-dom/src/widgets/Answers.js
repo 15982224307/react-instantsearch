@@ -22,6 +22,7 @@ export default function Answers({
   const [index, setIndex] = useState();
   const [isLoading, setIsLoading] = useState();
   const [hits, setHits] = useState();
+  console.log({ query, index, isLoading, hits });
   const runConcurrentSafePromise = useMemo(
     () => createConcurrentSafePromise(),
     []
@@ -59,6 +60,7 @@ export default function Answers({
   return (
     <InstantSearchConsumer>
       {contextValue => {
+        console.log('HEY', contextValue);
         const state = contextValue.store.getState();
         setIndex(state.results && state.results.index);
         setQuery(state.widgets.query);
