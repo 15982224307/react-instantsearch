@@ -42,7 +42,7 @@ export default function Answers({
     const unsubcribe = context.store.subscribe(() => {
       const { widgets, results } = context.store.getState();
       setQuery(widgets.query);
-      setIndex(results.index);
+      setIndex(results && results.index);
     });
     return unsubcribe;
   }, [context]);
@@ -54,7 +54,7 @@ export default function Answers({
   );
 
   useEffect(() => {
-    if (!query) {
+    if (!query || !index) {
       setIsLoading(false);
       setHits([]);
       return;
