@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { InstantSearchConsumer } from 'react-instantsearch-core';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
+import { InstantSearchContext } from 'react-instantsearch-core';
 import { createConcurrentSafePromise } from '../lib/createConcurrentSafePromise';
 import { debounce } from '../lib/debounce';
 
@@ -18,6 +18,7 @@ export default function Answers({
   nbHits = 1,
   answersComponent: AnswersComponent = DefaultAnswersComponent,
 }) {
+  const instantSearchContext = useContext(InstantSearchContext);
   const [query, setQuery] = useState();
   const [index, setIndex] = useState();
   const [isLoading, setIsLoading] = useState();
@@ -56,16 +57,18 @@ export default function Answers({
       setHits(result.hits);
     });
   }, [query]);
+  console.log({ instantSearchContext });
 
-  return (
-    <InstantSearchConsumer>
-      {contextValue => {
-        console.log('HEY', contextValue);
-        const state = contextValue.store.getState();
-        setIndex(state.results && state.results.index);
-        setQuery(state.widgets.query);
-        return <AnswersComponent hits={hits} isLoading={isLoading} />;
-      }}
-    </InstantSearchConsumer>
-  );
+  return null;
+  // return (
+  // <InstantSearchConsumer>
+  //   {contextValue => {
+  //     console.log('HEY', contextValue);
+  //     const state = contextValue.store.getState();
+  //     setIndex(state.results && state.results.index);
+  //     setQuery(state.widgets.query);
+  //     return <AnswersComponent hits={hits} isLoading={isLoading} />;
+  //   }}
+  // </InstantSearchConsumer>
+  // );
 }
