@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
-import {
-  InstantSearchProvider,
-  InstantSearchConsumer,
-} from 'react-instantsearch-core';
+import { instantSearchContext } from 'react-instantsearch-core';
 import { createConcurrentSafePromise } from '../lib/createConcurrentSafePromise';
 import { debounce } from '../lib/debounce';
 
@@ -21,10 +18,7 @@ export default function Answers({
   nbHits = 1,
   answersComponent: AnswersComponent = DefaultAnswersComponent,
 }) {
-  const instantSearchContext = useContext({
-    Provider: InstantSearchProvider,
-    Consumer: InstantSearchConsumer,
-  });
+  const instantSearchContext = useContext(instantSearchContext);
   const [query, setQuery] = useState();
   const [index, setIndex] = useState();
   const [isLoading, setIsLoading] = useState();

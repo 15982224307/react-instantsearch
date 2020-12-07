@@ -16036,14 +16036,6 @@ react-inspector@^2.3.0, react-inspector@^2.3.1:
     is-dom "^1.0.9"
     prop-types "^15.6.1"
 
-"react-instantsearch-core@file:packages/react-instantsearch-core":
-  version "6.8.2"
-  dependencies:
-    "@babel/runtime" "^7.1.2"
-    algoliasearch-helper "^3.1.0"
-    prop-types "^15.5.10"
-    react-fast-compare "^3.0.0"
-
 react-instantsearch-dom-maps@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/react-instantsearch-dom-maps/-/react-instantsearch-dom-maps-6.7.0.tgz#b3fd5a7f86fadd6751cf283080dcec026c4f2d79"
@@ -16063,16 +16055,6 @@ react-instantsearch-dom@6.7.0:
     classnames "^2.2.5"
     prop-types "^15.5.10"
     react-instantsearch-core "^6.7.0"
-
-"react-instantsearch-dom@file:./packages/react-instantsearch-dom":
-  version "6.8.2"
-  dependencies:
-    "@babel/runtime" "^7.1.2"
-    algoliasearch-helper "^3.1.0"
-    classnames "^2.2.5"
-    prop-types "^15.5.10"
-    react-fast-compare "^3.0.0"
-    react-instantsearch-core "file:../../Library/Caches/Yarn/v4/npm-react-instantsearch-dom-6.8.2-3449aac9-2ec3-45d3-b87d-9a62b338bbef-1607092924522/node_modules/react-instantsearch-core"
 
 react-is@^16.3.0, react-is@^16.8.1:
   version "16.8.2"
