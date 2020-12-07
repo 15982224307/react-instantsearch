@@ -1,6 +1,6 @@
 // Core
 export { default as createConnector } from './core/createConnector';
-export { InstantSearchContext } from './core/context';
+export { InstantSearchConsumer, InstantSearchProvider } from './core/context';
 
 // Utils
 export { HIGHLIGHT_TAGS } from './core/highlight';
