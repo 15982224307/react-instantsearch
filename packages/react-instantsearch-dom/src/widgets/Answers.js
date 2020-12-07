@@ -46,6 +46,12 @@ export default function Answers({
     });
     return unsubcribe;
   }, [context]);
+  const setAnswerHits = useMemo(
+    debounce(_hits => {
+      setIsLoading(false);
+      setHits(_hits);
+    }, 200)
+  );
 
   useEffect(() => {
     if (!query) {
@@ -60,8 +66,7 @@ export default function Answers({
         attributesForPrediction,
       })
     ).then(result => {
-      setIsLoading(false);
-      setHits(result.hits);
+      setAnswerHits(result.hits);
     });
   }, [query]);
 
