@@ -26,6 +26,10 @@ export default function Answers({
     Provider: InstantSearchProvider,
   });
   useEffect(() => {
+    console.log('Here', { isContext });
+    if (!isContext) {
+      return;
+    }
     const unsubcribe = isContext.store.subscribe(() => {
       console.log('state', isContext.store.getState());
     });
