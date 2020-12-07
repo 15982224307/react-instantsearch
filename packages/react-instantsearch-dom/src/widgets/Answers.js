@@ -46,7 +46,7 @@ export default function Answers({
     });
     return unsubcribe;
   }, [context]);
-  const setAnswerHits = useMemo(
+  const setAnswerHits = useMemo(() =>
     debounce(_hits => {
       setIsLoading(false);
       setHits(_hits);
