@@ -18,7 +18,9 @@ export default function Answers({
   nbHits = 1,
   answersComponent: AnswersComponent = DefaultAnswersComponent,
 }) {
-  const instantSearchContext = useContext(instantSearchContext);
+  const isContext = useContext(instantSearchContext);
+  console.log({ isContext });
+
   const [query, setQuery] = useState();
   const [index, setIndex] = useState();
   const [isLoading, setIsLoading] = useState();
@@ -57,7 +59,6 @@ export default function Answers({
       setHits(result.hits);
     });
   }, [query]);
-  console.log({ instantSearchContext });
 
   return null;
   // return (
